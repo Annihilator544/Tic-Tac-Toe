@@ -8,29 +8,50 @@ function cellClick(e){
     array[event.target.id-1]=humanMark;
     if(checkIfWinnerFound(array,aiMark)){
         document.getElementsByClassName("p")[0].innerHTML="You lost";
-        
+        cells=document.getElementsByClassName("cell");
+        for(let i=0;i<cells.length;i++){
+            cells[i].onclick=null;
+        }
     }
     else if(checkIfWinnerFound(array,humanMark)){
         document.getElementsByClassName("p")[0].innerHTML="Stop messing with my algo u cant possibly win this game lmao";
-    
+        cells=document.getElementsByClassName("cell");
+        for(let i=0;i<cells.length;i++){
+            cells[i].onclick=null;
+        }
     }
     
     else if(getAllEmptyCellsIndexes(array).length==0){
         document.getElementsByClassName("p")[0].innerHTML="Draw";
-    
+        cells=document.getElementsByClassName("cell");
+        for(let i=0;i<cells.length;i++){
+            cells[i].onclick=null;
+        }
     }
     const bestPlayInfo = minimax(array, aiMark);
     document.getElementById(bestPlayInfo.index+1).innerHTML=x;
     array[bestPlayInfo.index]=aiMark;
     if(checkIfWinnerFound(array,aiMark)){
         document.getElementsByClassName("p")[0].innerHTML="You lost";
+        cells=document.getElementsByClassName("cell");
+        for(let i=0;i<cells.length;i++){
+            cells[i].onclick=null;
+        }
     }
     else if(checkIfWinnerFound(array,humanMark)){
         document.getElementsByClassName("p")[0].innerHTML="Stop messing with my algo u cant possibly win this game lmao seriously";
+        cells=document.getElementsByClassName("cell");
+        for(let i=0;i<cells.length;i++){
+            cells[i].onclick=null;
+        }
     }
     
     else if(getAllEmptyCellsIndexes(array).length==0){
         document.getElementsByClassName("p")[0].innerHTML="Draw";
+        cells=document.getElementsByClassName("cell");
+        for(let i=0;i<cells.length;i++){
+            cells[i].onclick=null;
+        }
     }
    event.target.onclick=null;
 }
