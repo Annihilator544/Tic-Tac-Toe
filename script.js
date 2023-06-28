@@ -31,6 +31,7 @@ function cellClick(e){
     const bestPlayInfo = minimax(array, aiMark);
     document.getElementById(bestPlayInfo.index+1).innerHTML=x;
     array[bestPlayInfo.index]=aiMark;
+    document.getElementById(bestPlayInfo.index+1).onclick=null;
     if(checkIfWinnerFound(array,aiMark)){
         document.getElementsByClassName("p")[0].innerHTML="You lost";
         cells=document.getElementsByClassName("cell");
@@ -54,6 +55,7 @@ function cellClick(e){
         }
     }
    event.target.onclick=null;
+   
 }
 function getAllEmptyCellsIndexes(array){
     return array.filter((cell)=>cell!=aiMark&&cell!=humanMark);
